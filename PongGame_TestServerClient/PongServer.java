@@ -79,7 +79,7 @@ public class PongServer extends JFrame {
             acceptThread.start();
 
             while (gameRunning) { 
-                if (count_clients >= 1) {
+                if (count_clients >= 4) {
                     updateGame();
                 }
                 
@@ -192,13 +192,31 @@ public class PongServer extends JFrame {
                                     player1_y += paddle_speedY;
                                 }
                             }
-                            else {
+                            else if (client == clients[1]) {
                                 if (input.equals("UP") && player2_y > 160) {
                                     player2_y -= paddle_speedY;
                                 }
 
                                 if (input.equals("DOWN") && player2_y < 680) {
                                     player2_y += paddle_speedY;
+                                }
+                            }
+                            else if (client == clients[2]) {
+                                if (input.equals("UP") && player3_y > 160) {
+                                    player3_y -= paddle_speedY;
+                                }
+
+                                if (input.equals("DOWN") && player3_y < 680) {
+                                    player3_y += paddle_speedY;
+                                }
+                            }
+                            else if (client == clients[3]) {
+                                if (input.equals("UP") && player4_y > 160) {
+                                    player4_y -= paddle_speedY;
+                                }
+
+                                if (input.equals("DOWN") && player4_y < 680) {
+                                    player4_y += paddle_speedY;
                                 }
                             }
                         }
